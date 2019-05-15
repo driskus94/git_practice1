@@ -1,0 +1,39 @@
+weight = 12
+premium_shipping_cost = 125
+print(str(premium_shipping_cost) + " is the premium shipping cost.")
+
+def ground_ship_cost(weight):
+  if weight <= 2:
+    return 1.50 * weight + 20
+  elif 2 < weight <= 6:
+    return 3.00 * weight + 20
+  elif 6 < weight <= 10:
+    return 4.00 * weight + 20
+  elif weight > 10:
+    return 4.75 * weight + 20
+ground_cost = ground_ship_cost(weight)
+print(str(ground_cost) + " is the normal ground price.")
+
+def drone_ship_cost(weight):
+  if weight <= 2:
+    return 4.50 * weight
+  elif 2 < weight <= 6:
+    return 9.00 * weight
+  elif 6 < weight <= 10:
+    return 12.00 * weight
+  elif weight > 10:
+    return 14.25 * weight
+drone_cost = drone_ship_cost(weight)
+print(str(drone_cost) + " is the drone shipping price.")
+
+def cheapest_option(weight):
+  if premium_shipping_cost < ground_cost and premium_shipping_cost < drone_cost:
+    print("The premium shipping option is cheapest and results in a price of $" + str(premium_shipping_cost) + ".")
+  elif ground_cost < premium_shipping_cost and ground_cost < drone_cost:
+    print("The normal ground shipping option is the cheapest and results in a price of $" + str(ground_cost) + ".")
+  elif drone_cost < premium_shipping_cost and drone_cost < ground_cost:
+    print("The drone shipping option is the cheapest and results in a price of $" + str(drone_cost) + ".")
+      
+      
+      
+cheapest_option(weight)      
